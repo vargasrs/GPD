@@ -10,6 +10,7 @@ namespace Controller
     public class FornecedorController
     {
 
+
         private static List<Fornecedor> listaFornecedor = new List<Fornecedor>();
 
         public void Adicionar(string nome, string pessoa, string registro)

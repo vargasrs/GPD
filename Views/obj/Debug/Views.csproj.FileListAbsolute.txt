@@ -34,3 +34,6 @@ D:\TEMP\Aula_ContasPagar\Views\obj\Debug\ContasPagar.frmListagemFornecedor.resou
 D:\TEMP\Aula_ContasPagar\Views\obj\Debug\ContasPagar.frmListagemTipodocumento.resources
 D:\TEMP\Aula_ContasPagar\Views\obj\Debug\ContasPagar.Properties.Resources.resources
 D:\TEMP\Aula_ContasPagar\Views\obj\Debug\Views.csproj.GenerateResource.Cache
+D:\TEMP\GIT_GPD\Views\bin\Debug\ContasPagar.exe.config
+D:\TEMP\GIT_GPD\Views\obj\Debug\ContasPagar.exe
+D:\TEMP\GIT_GPD\Views\obj\Debug\ContasPagar.pdb
