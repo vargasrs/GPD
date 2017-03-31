@@ -1,0 +1,9 @@
+D:\TEMP\Aula_ContasPagar\ContasPagar\bin\Debug\ContasPagar.exe.config
+D:\TEMP\Aula_ContasPagar\ContasPagar\bin\Debug\ContasPagar.exe
+D:\TEMP\Aula_ContasPagar\ContasPagar\bin\Debug\ContasPagar.pdb
+D:\TEMP\Aula_ContasPagar\ContasPagar\obj\Debug\ContasPagar.csprojResolveAssemblyReference.cache
+D:\TEMP\Aula_ContasPagar\ContasPagar\obj\Debug\ContasPagar.Properties.Resources.resources
+D:\TEMP\Aula_ContasPagar\ContasPagar\obj\Debug\ContasPagar.csproj.GenerateResource.Cache
+D:\TEMP\Aula_ContasPagar\ContasPagar\obj\Debug\ContasPagar.exe
+D:\TEMP\Aula_ContasPagar\ContasPagar\obj\Debug\ContasPagar.pdb
+D:\TEMP\Aula_ContasPagar\ContasPagar\obj\Debug\ContasPagar.frmFormPrincipal.resources
