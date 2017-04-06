@@ -95,9 +95,6 @@ namespace ContasPagar
         }
 
 
-
-
-
     private void btn_salvar_Click(object sender, EventArgs e)
     {
       Salvar();

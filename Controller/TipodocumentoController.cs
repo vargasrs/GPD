@@ -57,6 +57,7 @@ namespace Controller
                 if (tdo.ID == id)
                 {
                     listaTipodocumento.Remove(tdo);
+                    break;
                 }
             }
         }

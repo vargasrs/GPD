@@ -30,9 +30,6 @@ namespace ContasPagar
         {
           btn_excluir.Visible = false;
         }
-
-
-
     }
 
      
@@ -72,8 +69,11 @@ namespace ContasPagar
         {
           if (FornecedorID.HasValue)
           {
+            // 
             FornecedorController forController = new FornecedorController();
             forController.Excluir(FornecedorID.Value);
+
+
             MessageBox.Show("Fornecedor excluido com sucesso");
             LimparCampos();
             this.Close();

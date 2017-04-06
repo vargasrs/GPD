@@ -5,3 +5,10 @@ D:\TEMP\Aula_ContasPagar\Controller\bin\Debug\Models.pdb
 D:\TEMP\Aula_ContasPagar\Controller\obj\Debug\Controller.csprojResolveAssemblyReference.cache
 D:\TEMP\Aula_ContasPagar\Controller\obj\Debug\Controller.dll
 D:\TEMP\Aula_ContasPagar\Controller\obj\Debug\Controller.pdb
+D:\TEMP\GIT_GPD\Controller\bin\Debug\Controller.dll
+D:\TEMP\GIT_GPD\Controller\bin\Debug\Controller.pdb
+D:\TEMP\GIT_GPD\Controller\bin\Debug\Models.dll
+D:\TEMP\GIT_GPD\Controller\bin\Debug\Models.pdb
+D:\TEMP\GIT_GPD\Controller\obj\Debug\Controller.csprojResolveAssemblyReference.cache
+D:\TEMP\GIT_GPD\Controller\obj\Debug\Controller.dll
+D:\TEMP\GIT_GPD\Controller\obj\Debug\Controller.pdb

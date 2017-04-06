@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-  public class Tipodocumento
+  public class Historico
   {
     public int ID { get; set; }
     public string Descricao { get; set; }
-    public string Sigla { get; set; }
-
-
+    public string Debcre { get; set; }
   }
 }

@@ -45,7 +45,18 @@ namespace ContasPagar
       listagem_tipodocumento.Show();
     }
 
+    private void tsp_hiscad_Click(object sender, EventArgs e)
+    {
+      frmCadastroHistorico cadHistorico = new frmCadastroHistorico(null);
+      cadHistorico.MdiParent = this;
+      cadHistorico.Show();
+    }
 
-
- }
+    private void tsp_hislis_Click(object sender, EventArgs e)
+    {
+      frmListagemHistorico listagem_historico = new frmListagemHistorico();
+      listagem_historico.MdiParent = this;
+      listagem_historico.Show();
+    }
+  }
 }
