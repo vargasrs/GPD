@@ -11,42 +11,36 @@ using System.Windows.Forms;
 
 namespace ContasPagar
 {
-   public partial class frmListagemFornecedor : Form
-   {
-        public frmListagemFornecedor()
-        {
-          InitializeComponent();
-        }
-  
-        private void CarregarGridViewFornecedor()
-        {
-            dgv_fornecedor.DataSource = null;
-            FornecedorController forController = new FornecedorController();
-            dgv_fornecedor.DataSource = forController.Listar();
-        }
+  public partial class frmListagemFornecedor : Form
+  {
+    public frmListagemFornecedor()
+    {
+      InitializeComponent();
+    }
 
-      
+    private void CarregarGridViewFornecedor()
+    {
+      // aqui faz leitura na tabela fornecedor para carregar na grid
+      dgv_fornecedor_tab.DataSource = null;
+      dgv_fornecedor_tab.DataSource = FornecedorController.BuscarTodos();
+    }
 
-        private void frmListagemFornecedor_Load(object sender, EventArgs e)
-        {
-          CarregarGridViewFornecedor();
-        }
+    private void frmListagemFornecedor_Load(object sender, EventArgs e)
+    {
+      CarregarGridViewFornecedor();
+    }
 
-  
-
-        private void dgv_fornecedor_SelectionChanged(object sender, EventArgs e)
-        {
-            if(((DataGridView)sender).SelectedRows.Count > 0)
-            {
-                int idSelecionado = Convert.ToInt32(((DataGridView)sender).SelectedRows[0].Cells[0].Value);
-                frmCadastroFornecedor cadFornecedor = new frmCadastroFornecedor(idSelecionado);
-                cadFornecedor.ShowDialog();
-                CarregarGridViewFornecedor();
-            }
-        }
-
-
-
- }
+    
+    private void dgv_fornecedor_tab_SelectionChanged(object sender, EventArgs e)
+    {
+      if (((DataGridView)sender).SelectedRows.Count > 0)
+      {
+        int idSelecionado = Convert.ToInt32(((DataGridView)sender).SelectedRows[0].Cells[0].Value);
+        frmCadastroFornecedor cadFornecedor = new frmCadastroFornecedor(idSelecionado);
+        cadFornecedor.ShowDialog();
+        CarregarGridViewFornecedor();
+      }
+    }
+  }
 
 }

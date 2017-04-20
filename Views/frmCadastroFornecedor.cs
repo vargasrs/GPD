@@ -19,18 +19,17 @@ namespace ContasPagar
 
         public frmCadastroFornecedor(int? idFornecedor)
         {
-            InitializeComponent();
-
-        if (idFornecedor.HasValue)
-        {
-          FornecedorID = idFornecedor;
-          btn_excluir.Visible = true;
+          InitializeComponent();
+          if (idFornecedor.HasValue)
+          {
+            FornecedorID = idFornecedor;
+            btn_excluir.Visible = true;
+          }
+          else
+          {
+            btn_excluir.Visible = false;
+          }
         }
-        else
-        {
-          btn_excluir.Visible = false;
-        }
-    }
 
      
 
@@ -40,7 +39,7 @@ namespace ContasPagar
             {
                 FornecedorController forController = new FornecedorController();
                 _Fornecedor = forController.Detalhes(FornecedorID.Value);
-
+                // se encontrou carrega
                 if (_Fornecedor != null)
                 {
                     txt_nome.Text     = _Fornecedor.Nome;
@@ -69,11 +68,7 @@ namespace ContasPagar
         {
           if (FornecedorID.HasValue)
           {
-            // 
-            FornecedorController forController = new FornecedorController();
-            forController.Excluir(FornecedorID.Value);
-
-
+            FornecedorController.ExcluirFornecedor(FornecedorID.Value);
             MessageBox.Show("Fornecedor excluido com sucesso");
             LimparCampos();
             this.Close();
@@ -90,18 +85,26 @@ namespace ContasPagar
                 {
                     if (FornecedorID.HasValue)
                     {
-                        FornecedorController forController = new FornecedorController();
-                        forController.Editar(FornecedorID.Value, txt_nome.Text, txt_pessoa.Text, txt_registro.Text);
-
+                        // aqui instancio em ins_fornecedor para atualizar no BD
+                        Fornecedor ins_fornecedor = new Fornecedor();
+                        ins_fornecedor.Nome     = txt_nome.Text;
+                        ins_fornecedor.Pessoa   = txt_pessoa.Text;
+                        ins_fornecedor.Registro = txt_registro.Text;
+                        FornecedorController.EditarFornecedor(FornecedorID.Value,ins_fornecedor);
+                        // mensagem
                         MessageBox.Show("Fornecedor alterado com sucesso");
                         LimparCampos();
                         this.Close();
                     }
                     else
                     {
-                        FornecedorController forController = new FornecedorController();
-                        forController.Adicionar(txt_nome.Text, txt_pessoa.Text, txt_registro.Text);
-
+                        // aqui instancio em ins_fornecedor para depois adicionar no BD
+                        Fornecedor ins_fornecedor = new Fornecedor();
+                        ins_fornecedor.Nome     = txt_nome.Text;
+                        ins_fornecedor.Pessoa   = txt_pessoa.Text;
+                        ins_fornecedor.Registro = txt_registro.Text;
+                        FornecedorController.AdicionarFornecedor(ins_fornecedor);
+                        // mensagem
                         MessageBox.Show("Fornecedor cadastrado com sucesso");
                         LimparCampos();
                     }

@@ -64,8 +64,7 @@ namespace ContasPagar
       if (HistoricoID.HasValue)
       {
         // 
-        HistoricoController hisController = new HistoricoController();
-        hisController.Excluir(HistoricoID.Value);
+        HistoricoController.ExcluirHistorico(HistoricoID.Value);
         MessageBox.Show("Historico excluido com sucesso");
         LimparCampos();
         this.Close();
@@ -82,18 +81,24 @@ namespace ContasPagar
         {
           if (HistoricoID.HasValue)
           {
-            HistoricoController hisController = new HistoricoController();
-            hisController.Editar(HistoricoID.Value, txt_descricao.Text, txt_debcre.Text);
-
+            // aqui instancio em ins_historico para atualizar no BD
+            Historico ins_historico = new Historico();
+            ins_historico.Descricao = txt_descricao.Text;
+            ins_historico.Debcre    = txt_debcre.Text;
+            HistoricoController.EditarHistorico(HistoricoID.Value, ins_historico);
+            // mensagem
             MessageBox.Show("Historico alterado com sucesso");
             LimparCampos();
             this.Close();
           }
           else
           {
-            HistoricoController hisController = new HistoricoController();
-            hisController.Adicionar(txt_descricao.Text, txt_debcre.Text);
-
+            // aqui instancio em ins_historico para depois adicionar no BD
+            Historico ins_Historico = new Historico();
+            ins_Historico.Descricao = txt_descricao.Text;
+            ins_Historico.Debcre    = txt_debcre.Text;
+            HistoricoController.AdicionarHistorico(ins_Historico);
+            // mensagem
             MessageBox.Show("Historico cadastrado com sucesso");
             LimparCampos();
           }

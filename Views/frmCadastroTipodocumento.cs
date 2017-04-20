@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace ContasPagar
 {
-  public partial class frmCadastroTipodocumento : Form
+  public partial class frmCadastroTipoDocumento : Form
   {
         // com int? permite receber parametro nulo
         public int? TipodocumentoID { get; set; }
-        public Tipodocumento _Tipodocumento { get; set; }
+        public TipoDocumento _Tipodocumento { get; set; }
 
-        public frmCadastroTipodocumento(int? idTipodocumento)
+        public frmCadastroTipoDocumento(int? idTipodocumento)
         {
             InitializeComponent();
 
@@ -30,7 +30,7 @@ namespace ContasPagar
         {
             if (TipodocumentoID.HasValue)
             {
-                TipodocumentoController tdoController = new TipodocumentoController();
+                TipoDocumentoController tdoController = new TipoDocumentoController();
                 _Tipodocumento = tdoController.Detalhes(TipodocumentoID.Value);
 
                 if (_Tipodocumento != null)
@@ -62,18 +62,24 @@ namespace ContasPagar
                 {
                     if (TipodocumentoID.HasValue)
                     {
-                        TipodocumentoController tdoController = new TipodocumentoController();
-                        tdoController.Editar(TipodocumentoID.Value, txt_descricao.Text, txt_sigla.Text);
-
+                        // aqui instancio em ins_fornecedor para atualizar no BD
+                        TipoDocumento ins_TipoDocumento = new TipoDocumento();
+                        ins_TipoDocumento.Descricao = txt_descricao.Text;
+                        ins_TipoDocumento.Sigla     = txt_sigla.Text;
+                        TipoDocumentoController.EditarTipoDocumento(TipodocumentoID.Value,ins_TipoDocumento);
+                        // mensagem
                         MessageBox.Show("Tipo de documento alterado com sucesso");
                         LimparCampos();
                         this.Close();
                     }
                     else
                     {
-                        TipodocumentoController tdoController = new TipodocumentoController();
-                        tdoController.Adicionar(txt_descricao.Text, txt_sigla.Text);
-
+                        // aqui instancio em ins_fornecedor para depois adicionar no BD
+                        TipoDocumento ins_TipoDocumento = new TipoDocumento();
+                        ins_TipoDocumento.Descricao = txt_descricao.Text;
+                        ins_TipoDocumento.Sigla     = txt_sigla.Text;
+                        TipoDocumentoController.AdicionarTipoDocumento(ins_TipoDocumento);
+                        // mensagem
                         MessageBox.Show("Tipo de documento cadastrado com sucesso");
                         LimparCampos();
                     }
@@ -89,7 +95,20 @@ namespace ContasPagar
             }
         }
 
-        private bool Validar()
+    private void Excluir()
+    {
+      if (TipodocumentoID.HasValue)
+      {
+        TipoDocumentoController.ExcluirTipoDocumento(TipodocumentoID.Value);
+        MessageBox.Show("Tipo documento excluido com sucesso");
+        LimparCampos();
+        this.Close();
+      }
+    }
+
+
+
+    private bool Validar()
         {
             return !(string.IsNullOrEmpty(txt_descricao.Text) || string.IsNullOrEmpty(txt_sigla.Text) );
         }
@@ -109,5 +128,10 @@ namespace ContasPagar
     {
       CarregarFormulario();
     }
- }
+
+    private void btn_excluir_Click(object sender, EventArgs e)
+    {
+      Excluir();
+    }
+  }
 }

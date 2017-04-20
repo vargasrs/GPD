@@ -33,14 +33,14 @@ namespace ContasPagar
 
     private void tsp_tdocad_Click(object sender, EventArgs e)
     {
-      frmCadastroTipodocumento cadTipodocumento = new frmCadastroTipodocumento(null);
+      frmCadastroTipoDocumento cadTipodocumento = new frmCadastroTipoDocumento(null);
       cadTipodocumento.MdiParent = this;
       cadTipodocumento.Show();
     }
 
     private void tsp_tdolis_Click(object sender, EventArgs e)
     {
-      frmListagemTipodocumento listagem_tipodocumento = new frmListagemTipodocumento();
+      frmListagemTipoDocumento listagem_tipodocumento = new frmListagemTipoDocumento();
       listagem_tipodocumento.MdiParent = this;
       listagem_tipodocumento.Show();
     }
@@ -57,6 +57,13 @@ namespace ContasPagar
       frmListagemHistorico listagem_historico = new frmListagemHistorico();
       listagem_historico.MdiParent = this;
       listagem_historico.Show();
+    }
+
+    private void tsp_titulocad_Click(object sender, EventArgs e)
+    {
+      frmCadastroTitulo cadTitulo = new frmCadastroTitulo(null);
+      cadTitulo.MdiParent = this;
+      cadTitulo.Show();
     }
   }
 }

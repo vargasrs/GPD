@@ -25,7 +25,7 @@ namespace ContasPagar
             if (fornecedor != null)
             {
                 // Preenchendo a tela com os dados do cliente encontrado
-                lbl_id.Text       = fornecedor.ID.ToString();
+                lbl_id.Text       = fornecedor.FornecedorID.ToString();
                 lbl_nome.Text     = fornecedor.Nome;
                 lbl_pessoa.Text   = fornecedor.Pessoa;
                 lbl_registro.Text = fornecedor.Registro;

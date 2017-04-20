@@ -55,3 +55,7 @@ D:\TEMP\GIT_GPD\Views\obj\Debug\Views.csproj.GenerateResource.Cache
 D:\TEMP\GIT_GPD\Views\obj\Debug\ContasPagar.frmCadastroHistorico.resources
 D:\TEMP\GIT_GPD\Views\obj\Debug\ContasPagar.frmListagemHistorico.resources
 D:\TEMP\GIT_GPD\Views\obj\Debug\ContasPagar.frmCadastroTitulo.resources
+D:\TEMP\GIT_GPD\Views\bin\Debug\EntityFramework.dll
+D:\TEMP\GIT_GPD\Views\bin\Debug\EntityFramework.SqlServer.dll
+D:\TEMP\GIT_GPD\Views\bin\Debug\EntityFramework.xml
+D:\TEMP\GIT_GPD\Views\bin\Debug\EntityFramework.SqlServer.xml

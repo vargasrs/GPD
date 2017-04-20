@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Models
 {
-  public class Tipodocumento
+  [Table("TipoDocumento")]
+  public class TipoDocumento
   {
-    public int ID { get; set; }
-    public string Descricao { get; set; }
-    public string Sigla { get; set; }
+    [Key]
+    public int TipoDocumentoID { get; set; }
 
+    [Required, StringLength(30)]
+    public string Descricao { get; set; }
+
+    [Required, StringLength(06)]
+    public string Sigla { get; set; }
 
   }
 }

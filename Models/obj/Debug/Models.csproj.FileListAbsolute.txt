@@ -7,3 +7,8 @@ D:\TEMP\GIT_GPD\Models\bin\Debug\Models.pdb
 D:\TEMP\GIT_GPD\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 D:\TEMP\GIT_GPD\Models\obj\Debug\Models.dll
 D:\TEMP\GIT_GPD\Models\obj\Debug\Models.pdb
+D:\TEMP\GIT_GPD\Models\bin\Debug\Models.dll.config
+D:\TEMP\GIT_GPD\Models\bin\Debug\EntityFramework.dll
+D:\TEMP\GIT_GPD\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\TEMP\GIT_GPD\Models\bin\Debug\EntityFramework.xml
+D:\TEMP\GIT_GPD\Models\bin\Debug\EntityFramework.SqlServer.xml

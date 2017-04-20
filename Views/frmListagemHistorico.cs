@@ -20,11 +20,10 @@ namespace ContasPagar
 
     private void CarregarGridViewHistorico()
     {
+      // aqui faz leitura na tabela historico para carregar na grid
       dgv_historico.DataSource = null;
-      HistoricoController hisController = new HistoricoController();
-      dgv_historico.DataSource = hisController.Listar();
+      dgv_historico.DataSource = HistoricoController.BuscarTodos();
     }
-    
 
     private void frmListagemHistorico_Load(object sender, EventArgs e)
     {

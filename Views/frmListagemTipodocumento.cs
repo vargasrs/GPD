@@ -11,38 +11,35 @@ using System.Windows.Forms;
 
 namespace ContasPagar
 {
-  public partial class frmListagemTipodocumento : Form
+  public partial class frmListagemTipoDocumento : Form
   {
-    public frmListagemTipodocumento()
+    public frmListagemTipoDocumento()
     {
       InitializeComponent();
     }
 
-        private void CarregarGridViewTipodocumento()
-        {
-            dgv_tipodocumento.DataSource = null;
-            TipodocumentoController tdoController = new TipodocumentoController();
-            dgv_tipodocumento.DataSource = tdoController.Listar();
-        }
+    private void CarregarGridViewTipodocumento()
+    {
+      // aqui faz leitura na tabela fornecedor para carregar na grid
+      dgv_tipodocumento.DataSource = null;
+      dgv_tipodocumento.DataSource = TipoDocumentoController.BuscarTodos();
+    }
 
-        private void dgv_tipodocumento_SelectionChanged(object sender, EventArgs e)
-        {
-            if(((DataGridView)sender).SelectedRows.Count > 0)
-            {
-                int idSelecionado = Convert.ToInt32(((DataGridView)sender).SelectedRows[0].Cells[0].Value);
-                frmCadastroTipodocumento cadTipodocumento = new frmCadastroTipodocumento(idSelecionado);
-                cadTipodocumento.ShowDialog();
-                CarregarGridViewTipodocumento();
-            }
+    private void dgv_tipodocumento_SelectionChanged(object sender, EventArgs e)
+    {
+      if(((DataGridView)sender).SelectedRows.Count > 0)
+      {
+        int idSelecionado = Convert.ToInt32(((DataGridView)sender).SelectedRows[0].Cells[0].Value);
+        frmCadastroTipoDocumento cadTipodocumento = new frmCadastroTipoDocumento(idSelecionado);
+        cadTipodocumento.ShowDialog();
+        CarregarGridViewTipodocumento();
+      }
+    }
 
-        }
-
-      
-
-        private void frmListagemTipodocumento_Load(object sender, EventArgs e)
-        {
-          CarregarGridViewTipodocumento();
-        }
+    private void frmListagemTipodocumento_Load(object sender, EventArgs e)
+    {
+      CarregarGridViewTipodocumento();
+    }
 
 
  }

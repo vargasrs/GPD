@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,70 +8,75 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    public class FornecedorController
+  public class FornecedorController
+  {
+    // ver se esse fica
+    private static List<Fornecedor> listaFornecedor = new List<Fornecedor>();
+    
+    // busca todos os fornecedores 
+    public static List<Fornecedor> BuscarTodos()
     {
-
-
-        private static List<Fornecedor> listaFornecedor = new List<Fornecedor>();
-
-        public void Adicionar(string nome, string pessoa, string registro)
-        {
-            Fornecedor frn = new Fornecedor();
-            frn.ID = listaFornecedor.Count + 1;
-            frn.Nome = nome;
-            frn.Pessoa = pessoa;
-            frn.Registro = registro;
-
-            listaFornecedor.Add(frn);
-        }
-     
-
-        private Fornecedor BuscarPorID(int id)
-        {
-            foreach (Fornecedor frn in listaFornecedor)
-            {
-                if (frn.ID == id)
-                {
-                    return frn;
-                }
-            }
-            return null;
-        }
-
-        public Fornecedor Detalhes(int id)
-        {
-            return BuscarPorID(id);
-        }
-
-        public void Editar(int id, string novoNome, string novoPessoa, string novoRegistro)
-        {
-            Fornecedor frn = BuscarPorID(id);
-
-            if(frn != null)
-            {
-                frn.Nome     = novoNome;
-                frn.Pessoa   = novoPessoa;
-                frn.Registro = novoRegistro;
-            }
-        }
-
-        public void Excluir(int id)
-        {
-            foreach (Fornecedor frn in listaFornecedor)
-            {
-                if (frn.ID == id)
-                {
-                    listaFornecedor.Remove(frn);
-                    break;
-                }
-            }
-        }
-
-        public List<Fornecedor> Listar()
-        {
-            return listaFornecedor;
-        }
-
-
+      using (Contexto ctx = new Contexto())
+      {
+        return ctx.Fornecedores.ToList();
+      }
     }
+
+    public static void AdicionarFornecedor(Fornecedor fornecedor)
+    {
+      using (Contexto ctx = new Contexto())
+      {
+        ctx.Fornecedores.Add(fornecedor);
+        ctx.SaveChanges();
+      }
+    }
+    
+    public Fornecedor Detalhes(int id)
+    {
+      using (Contexto ctx = new Contexto())
+      {
+        return BuscarFornecedorPorID(id,ctx);
+      }
+    }
+
+    private static Fornecedor BuscarFornecedorPorID(int id, Contexto ctx)
+    {
+      return ctx.Fornecedores.Find(id);
+    }
+
+
+    public static void EditarFornecedor(int id, Fornecedor novosDadosFornecedor)
+    {
+      using (Contexto ctx = new Contexto())
+      {
+        Fornecedor dadosAntigosFornecedor = BuscarFornecedorPorID(id, ctx);
+        if (dadosAntigosFornecedor != null)
+        {
+          dadosAntigosFornecedor.Nome = novosDadosFornecedor.Nome;
+          dadosAntigosFornecedor.Pessoa = novosDadosFornecedor.Pessoa;
+          dadosAntigosFornecedor.Registro = novosDadosFornecedor.Registro;
+          ctx.Entry(dadosAntigosFornecedor).State = System.Data.Entity.EntityState.Modified;
+          ctx.SaveChanges();
+        }
+      }
+    }
+
+    public static void ExcluirFornecedor(int id)
+    {
+      using (Contexto ctx = new Contexto())
+      {
+        Fornecedor a = BuscarFornecedorPorID(id, ctx);
+        if (a != null)
+        {
+          ctx.Entry(a).State = System.Data.Entity.EntityState.Deleted;
+          ctx.SaveChanges();
+        }
+      }
+    }
+
+
+    
+
+
+  }
 }

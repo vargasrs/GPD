@@ -33,7 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,11 +67,11 @@
     <Compile Include="frmCadastroHistorico.Designer.cs">
       <DependentUpon>frmCadastroHistorico.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCadastroTipodocumento.cs">
+    <Compile Include="frmCadastroTipoDocumento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCadastroTipodocumento.Designer.cs">
-      <DependentUpon>frmCadastroTipodocumento.cs</DependentUpon>
+    <Compile Include="frmCadastroTipoDocumento.Designer.cs">
+      <DependentUpon>frmCadastroTipoDocumento.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCadastroTitulo.cs">
       <SubType>Form</SubType>
@@ -94,11 +103,11 @@
     <Compile Include="frmListagemHistorico.Designer.cs">
       <DependentUpon>frmListagemHistorico.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListagemTipodocumento.cs">
+    <Compile Include="frmListagemTipoDocumento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListagemTipodocumento.Designer.cs">
-      <DependentUpon>frmListagemTipodocumento.cs</DependentUpon>
+    <Compile Include="frmListagemTipoDocumento.Designer.cs">
+      <DependentUpon>frmListagemTipoDocumento.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,8 +117,8 @@
     <EmbeddedResource Include="frmCadastroHistorico.resx">
       <DependentUpon>frmCadastroHistorico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCadastroTipodocumento.resx">
-      <DependentUpon>frmCadastroTipodocumento.cs</DependentUpon>
+    <EmbeddedResource Include="frmCadastroTipoDocumento.resx">
+      <DependentUpon>frmCadastroTipoDocumento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroTitulo.resx">
       <DependentUpon>frmCadastroTitulo.cs</DependentUpon>
@@ -126,8 +135,8 @@
     <EmbeddedResource Include="frmListagemHistorico.resx">
       <DependentUpon>frmListagemHistorico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListagemTipodocumento.resx">
-      <DependentUpon>frmListagemTipodocumento.cs</DependentUpon>
+    <EmbeddedResource Include="frmListagemTipoDocumento.resx">
+      <DependentUpon>frmListagemTipoDocumento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -149,7 +158,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Controller\Controller.csproj">

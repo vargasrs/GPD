@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,62 +10,69 @@ namespace Controller
 {
   public class HistoricoController
   {
+    // ver se esse fica
     private static List<Historico> listaHistorico = new List<Historico>();
 
-    public void Adicionar(string descricao, string debcre)
+    // busca todos os HISTORICOS
+    public static List<Historico> BuscarTodos()
     {
-      Historico his = new Historico();
-      his.ID = listaHistorico.Count + 1;
-      his.Descricao = descricao;
-      his.Debcre = debcre;
-      listaHistorico.Add(his);
+      using (Contexto ctx = new Contexto())
+      {
+        return ctx.Historicos.ToList();
+      }
     }
 
-
-    private Historico BuscarPorID(int id)
+    public static void AdicionarHistorico(Historico Historico)
     {
-      foreach (Historico his in listaHistorico)
+      using (Contexto ctx = new Contexto())
       {
-        if (his.ID == id)
-        {
-          return his;
-        }
+        ctx.Historicos.Add(Historico);
+        ctx.SaveChanges();
       }
-      return null;
     }
 
     public Historico Detalhes(int id)
     {
-      return BuscarPorID(id);
-    }
-
-    public void Editar(int id, string novoDescricao, string novoDebcre)
-    {
-      Historico his = BuscarPorID(id);
-
-      if (his != null)
+      using (Contexto ctx = new Contexto())
       {
-        his.Descricao = novoDescricao;
-        his.Debcre    = novoDebcre;
+        return BuscarHistoricoPorID(id,ctx);
       }
     }
 
-    public void Excluir(int id)
+
+    private static Historico BuscarHistoricoPorID(int id, Contexto ctx)
     {
-      foreach (Historico his in listaHistorico)
+      return ctx.Historicos.Find(id);
+    }
+
+    public static void EditarHistorico(int id, Historico novosDadosHistorico)
+    {
+      using (Contexto ctx = new Contexto())
       {
-        if (his.ID == id)
+        Historico dadosAntigosHistorico = BuscarHistoricoPorID(id, ctx);
+        if (dadosAntigosHistorico != null)
         {
-          listaHistorico.Remove(his);
-          break;
+          dadosAntigosHistorico.Descricao = novosDadosHistorico.Descricao;
+          dadosAntigosHistorico.Debcre = novosDadosHistorico.Debcre;
+          ctx.Entry(dadosAntigosHistorico).State = System.Data.Entity.EntityState.Modified;
+          ctx.SaveChanges();
         }
       }
     }
 
-    public List<Historico> Listar()
+    public static void ExcluirHistorico(int id)
     {
-      return listaHistorico;
+      using (Contexto ctx = new Contexto())
+      {
+        Historico a = BuscarHistoricoPorID(id, ctx);
+        if (a != null)
+        {
+          ctx.Entry(a).State = System.Data.Entity.EntityState.Deleted;
+          ctx.SaveChanges();
+        }
+      }
     }
+   
 
 
   }

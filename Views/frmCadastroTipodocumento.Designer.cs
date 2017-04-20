@@ -1,6 +1,6 @@
 ﻿namespace ContasPagar
 {
- partial class frmCadastroTipodocumento
+ partial class frmCadastroTipoDocumento
  {
   /// <summary>
   /// Required designer variable.
@@ -97,8 +97,9 @@
       this.btn_excluir.TabIndex = 6;
       this.btn_excluir.Text = "Excluir";
       this.btn_excluir.UseVisualStyleBackColor = true;
+      this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
       // 
-      // frmCadastroTipodocumento
+      // frmCadastroTipoDocumento
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +111,7 @@
       this.Controls.Add(this.btn_salvar);
       this.Controls.Add(this.lbl_sigla);
       this.Controls.Add(this.lbl_descricao);
-      this.Name = "frmCadastroTipodocumento";
+      this.Name = "frmCadastroTipoDocumento";
       this.Text = "Cadastro Tipo Documento";
       this.Load += new System.EventHandler(this.frmCadastroTipodocumento_Load);
       this.ResumeLayout(false);

@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,67 +8,72 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-  public class TipodocumentoController
+  public class TipoDocumentoController
   {
-        private static List<Tipodocumento> listaTipodocumento = new List<Tipodocumento>();
+    // ver se esse fica
+    private static List<TipoDocumento> listaTipodocumento = new List<TipoDocumento>();
 
-        public void Adicionar(string descricao, string sigla)
+    // busca todos os Tipo Documentos 
+    public static List<TipoDocumento> BuscarTodos()
+    {
+      using (Contexto ctx = new Contexto())
+      {
+        return ctx.TipoDocumentos.ToList();
+      }
+    }
+
+
+    public static void AdicionarTipoDocumento(TipoDocumento TipoDocumento)
+    {
+      using (Contexto ctx = new Contexto())
+      {
+        ctx.TipoDocumentos.Add(TipoDocumento);
+        ctx.SaveChanges();
+      }
+    }
+
+    public TipoDocumento Detalhes(int id)
+    {
+      using (Contexto ctx = new Contexto())
+      {
+        return BuscarTipoDocumentoPorID(id, ctx);
+      }
+    }
+    
+    private static TipoDocumento BuscarTipoDocumentoPorID(int id, Contexto ctx)
+    {
+      return ctx.TipoDocumentos.Find(id);
+    }
+
+    public static void EditarTipoDocumento(int id, TipoDocumento novosDadosTipoDocumento)
+    {
+      using (Contexto ctx = new Contexto())
+      {
+        TipoDocumento dadosAntigosTipoDocumento = BuscarTipoDocumentoPorID(id, ctx);
+        if (dadosAntigosTipoDocumento != null)
         {
-            Tipodocumento tdo = new Tipodocumento();
-            tdo.ID        = listaTipodocumento.Count + 1;
-            tdo.Descricao = descricao;
-            tdo.Sigla     = sigla;
-           
-            listaTipodocumento.Add(tdo);
+          dadosAntigosTipoDocumento.Descricao = novosDadosTipoDocumento.Descricao;
+          dadosAntigosTipoDocumento.Sigla     = novosDadosTipoDocumento.Sigla;
+          ctx.Entry(dadosAntigosTipoDocumento).State = System.Data.Entity.EntityState.Modified;
+          ctx.SaveChanges();
         }
-     
+      }
+    }
 
-        private Tipodocumento BuscarPorID(int id)
+    public static void ExcluirTipoDocumento(int id)
+    {
+      using (Contexto ctx = new Contexto())
+      {
+        TipoDocumento a = BuscarTipoDocumentoPorID(id, ctx);
+        if (a != null)
         {
-            foreach (Tipodocumento tdo in listaTipodocumento)
-            {
-                if (tdo.ID == id)
-                {
-                    return tdo;
-                }
-            }
-            return null;
+          ctx.Entry(a).State = System.Data.Entity.EntityState.Deleted;
+          ctx.SaveChanges();
         }
+      }
+    }
 
-        public Tipodocumento Detalhes(int id)
-        {
-            return BuscarPorID(id);
-        }
-
-        public void Editar(int id, string novoDescricao, string novoSigla)
-        {
-            Tipodocumento tdo = BuscarPorID(id);
-
-            if(tdo != null)
-            {
-                tdo.Descricao = novoDescricao;
-                tdo.Sigla     = novoSigla;
-            }
-        }
-
-        public void Excluir(int id)
-        {
-            foreach (Tipodocumento tdo in listaTipodocumento)
-            {
-                if (tdo.ID == id)
-                {
-                    listaTipodocumento.Remove(tdo);
-                    break;
-                }
-            }
-        }
-
-        public List<Tipodocumento> Listar()
-        {
-          return listaTipodocumento;
-        }
-
-
+    
 
   }
 }

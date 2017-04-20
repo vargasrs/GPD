@@ -38,6 +38,9 @@
       this.tsp_his = new System.Windows.Forms.ToolStripMenuItem();
       this.tsp_hiscad = new System.Windows.Forms.ToolStripMenuItem();
       this.tsp_hislis = new System.Windows.Forms.ToolStripMenuItem();
+      this.tsp_titulo = new System.Windows.Forms.ToolStripMenuItem();
+      this.tsp_titulocad = new System.Windows.Forms.ToolStripMenuItem();
+      this.tsp_titulolis = new System.Windows.Forms.ToolStripMenuItem();
       this.mnu_principal.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -46,10 +49,11 @@
       this.mnu_principal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsp_for,
             this.tsp_tdc,
-            this.tsp_his});
+            this.tsp_his,
+            this.tsp_titulo});
       this.mnu_principal.Location = new System.Drawing.Point(0, 0);
       this.mnu_principal.Name = "mnu_principal";
-      this.mnu_principal.Size = new System.Drawing.Size(466, 24);
+      this.mnu_principal.Size = new System.Drawing.Size(762, 24);
       this.mnu_principal.TabIndex = 0;
       this.mnu_principal.Text = "Menu Principal";
       // 
@@ -122,11 +126,33 @@
       this.tsp_hislis.Text = "Listagem";
       this.tsp_hislis.Click += new System.EventHandler(this.tsp_hislis_Click);
       // 
+      // tsp_titulo
+      // 
+      this.tsp_titulo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsp_titulocad,
+            this.tsp_titulolis});
+      this.tsp_titulo.Name = "tsp_titulo";
+      this.tsp_titulo.Size = new System.Drawing.Size(50, 20);
+      this.tsp_titulo.Text = "Título";
+      // 
+      // tsp_titulocad
+      // 
+      this.tsp_titulocad.Name = "tsp_titulocad";
+      this.tsp_titulocad.Size = new System.Drawing.Size(152, 22);
+      this.tsp_titulocad.Text = "Cadastro";
+      this.tsp_titulocad.Click += new System.EventHandler(this.tsp_titulocad_Click);
+      // 
+      // tsp_titulolis
+      // 
+      this.tsp_titulolis.Name = "tsp_titulolis";
+      this.tsp_titulolis.Size = new System.Drawing.Size(152, 22);
+      this.tsp_titulolis.Text = "Listagem";
+      // 
       // frmFormPrincipal
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(466, 363);
+      this.ClientSize = new System.Drawing.Size(762, 443);
       this.Controls.Add(this.mnu_principal);
       this.IsMdiContainer = true;
       this.MainMenuStrip = this.mnu_principal;
@@ -151,6 +177,9 @@
     private System.Windows.Forms.ToolStripMenuItem tsp_his;
     private System.Windows.Forms.ToolStripMenuItem tsp_hiscad;
     private System.Windows.Forms.ToolStripMenuItem tsp_hislis;
+    private System.Windows.Forms.ToolStripMenuItem tsp_titulo;
+    private System.Windows.Forms.ToolStripMenuItem tsp_titulocad;
+    private System.Windows.Forms.ToolStripMenuItem tsp_titulolis;
   }
 }
 

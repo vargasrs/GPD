@@ -12,3 +12,8 @@ D:\TEMP\GIT_GPD\Controller\bin\Debug\Models.pdb
 D:\TEMP\GIT_GPD\Controller\obj\Debug\Controller.csprojResolveAssemblyReference.cache
 D:\TEMP\GIT_GPD\Controller\obj\Debug\Controller.dll
 D:\TEMP\GIT_GPD\Controller\obj\Debug\Controller.pdb
+D:\TEMP\GIT_GPD\Controller\bin\Debug\Controller.dll.config
+D:\TEMP\GIT_GPD\Controller\bin\Debug\EntityFramework.dll
+D:\TEMP\GIT_GPD\Controller\bin\Debug\EntityFramework.SqlServer.dll
+D:\TEMP\GIT_GPD\Controller\bin\Debug\EntityFramework.xml
+D:\TEMP\GIT_GPD\Controller\bin\Debug\EntityFramework.SqlServer.xml
