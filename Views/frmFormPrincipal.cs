@@ -65,5 +65,28 @@ namespace ContasPagar
       cadTitulo.MdiParent = this;
       cadTitulo.Show();
     }
-  }
+
+    private void tsp_titulolis_Click(object sender, EventArgs e)
+    {
+      frmListagemTitulo listagem_titulo = new frmListagemTitulo();
+      listagem_titulo.MdiParent = this;
+      listagem_titulo.Show();
+    }
+
+    private void tsp_titulomovimentocad_Click(object sender, EventArgs e)
+    {
+      frmCadastroTituloMovimento cadTituloMovimento = new frmCadastroTituloMovimento(null);
+      cadTituloMovimento.MdiParent = this;
+      cadTituloMovimento.Show();
+    }
+
+    private void tsp_titulomovimentolis_Click(object sender, EventArgs e)
+    {
+      frmListagemTituloMovimento listagem_titulomovimento = new frmListagemTituloMovimento();
+      listagem_titulomovimento.MdiParent = this;
+      listagem_titulomovimento.Show();
+    }
+
+
+ }
 }

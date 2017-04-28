@@ -42,7 +42,7 @@ namespace ContasPagar
         if (_Historico != null)
         {
           txt_descricao.Text = _Historico.Descricao;
-          txt_debcre.Text = _Historico.Debcre;
+          cbx_Debcre.Text = _Historico.Debcre;
           btn_salvar.Text = "Atualizar";
         }
       }
@@ -55,7 +55,6 @@ namespace ContasPagar
       HistoricoID = null;
       _Historico = null;
       txt_descricao.Clear();
-      txt_debcre.Clear();
       btn_salvar.Text = "Salvar";
     }
 
@@ -84,7 +83,7 @@ namespace ContasPagar
             // aqui instancio em ins_historico para atualizar no BD
             Historico ins_historico = new Historico();
             ins_historico.Descricao = txt_descricao.Text;
-            ins_historico.Debcre    = txt_debcre.Text;
+            ins_historico.Debcre    = cbx_Debcre.Text;
             HistoricoController.EditarHistorico(HistoricoID.Value, ins_historico);
             // mensagem
             MessageBox.Show("Historico alterado com sucesso");
@@ -96,7 +95,7 @@ namespace ContasPagar
             // aqui instancio em ins_historico para depois adicionar no BD
             Historico ins_Historico = new Historico();
             ins_Historico.Descricao = txt_descricao.Text;
-            ins_Historico.Debcre    = txt_debcre.Text;
+            ins_Historico.Debcre    = cbx_Debcre.Text;
             HistoricoController.AdicionarHistorico(ins_Historico);
             // mensagem
             MessageBox.Show("Historico cadastrado com sucesso");
@@ -116,7 +115,7 @@ namespace ContasPagar
 
     private bool Validar()
     {
-      return !(string.IsNullOrEmpty(txt_descricao.Text) || string.IsNullOrEmpty(txt_debcre.Text));
+      return !(string.IsNullOrEmpty(txt_descricao.Text));
     }
 
     private void btn_salvar_Click(object sender, EventArgs e)
@@ -141,11 +140,6 @@ namespace ContasPagar
 
     private void cb_debcre_SelectedIndexChanged(object sender, EventArgs e)
     {
-      if (cb_debcre.SelectedIndex == 0)
-        txt_debcre.Text = "C";
-      else
-        txt_debcre.Text = "D";
-
 
 
     }

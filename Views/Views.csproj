@@ -79,6 +79,12 @@
     <Compile Include="frmCadastroTitulo.Designer.cs">
       <DependentUpon>frmCadastroTitulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadastroTituloMovimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroTituloMovimento.Designer.cs">
+      <DependentUpon>frmCadastroTituloMovimento.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDetalhesFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,18 @@
     <Compile Include="frmListagemTipoDocumento.Designer.cs">
       <DependentUpon>frmListagemTipoDocumento.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListagemTitulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListagemTitulo.Designer.cs">
+      <DependentUpon>frmListagemTitulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListagemTituloMovimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListagemTituloMovimento.Designer.cs">
+      <DependentUpon>frmListagemTituloMovimento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCadastroFornecedor.resx">
@@ -122,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroTitulo.resx">
       <DependentUpon>frmCadastroTitulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroTituloMovimento.resx">
+      <DependentUpon>frmCadastroTituloMovimento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDetalhesFornecedor.resx">
       <DependentUpon>frmDetalhesFornecedor.cs</DependentUpon>
@@ -137,6 +158,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListagemTipoDocumento.resx">
       <DependentUpon>frmListagemTipoDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListagemTitulo.resx">
+      <DependentUpon>frmListagemTitulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListagemTituloMovimento.resx">
+      <DependentUpon>frmListagemTituloMovimento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

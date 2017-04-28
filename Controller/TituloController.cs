@@ -13,6 +13,15 @@ namespace Controller
     // ver se esse fica
     private static List<Titulo> listaTitulo = new List<Titulo>();
 
+    // busca todos titulos 
+    public static List<Titulo> BuscarTodos()
+    {
+      using (Contexto ctx = new Contexto())
+      {
+        return ctx.Titulos.ToList();
+      }
+    }
+
     public static void AdicionarTitulo(Titulo Titulo)
     {
       using (Contexto ctx = new Contexto())
@@ -21,6 +30,15 @@ namespace Controller
         ctx.SaveChanges();
       }
     }
+    
+    public Titulo Detalhes(int id)
+    {
+      using (Contexto ctx = new Contexto())
+      {
+        return BuscarTituloPorID(id, ctx);
+      }
+    }
+
 
     private static Titulo BuscarTituloPorID(int id, Contexto ctx)
     {

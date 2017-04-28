@@ -21,8 +21,8 @@ namespace ContasPagar
     private void CarregarGridViewFornecedor()
     {
       // aqui faz leitura na tabela fornecedor para carregar na grid
-      dgv_fornecedor_tab.DataSource = null;
-      dgv_fornecedor_tab.DataSource = FornecedorController.BuscarTodos();
+      dgv_fornecedor.DataSource = null;
+      dgv_fornecedor.DataSource = FornecedorController.BuscarTodos();
     }
 
     private void frmListagemFornecedor_Load(object sender, EventArgs e)
